@@ -1,26 +1,11 @@
 
-<div class="w-100 h-100" id="page-content">
-    <div class="d-flex flex-column justify-content-center align-items-center">
-        <% @articles.each do |article| %>
-            <div class="w-50 mt-5 card text-center shadow">
-                <div class="card-header font-italic">
-                    By Sanan Rao
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title"><%= link_to article.title, article_path(article), class: 'text-primary' %></h5>
-                    <p class="card-text"><%= truncate(article.description, length: 100) %></p>
-                    <div class="d-flex justify-content-center align-items-center w-100 gap-2"> 
-                        <%= button_to 'View', article_path(article), method: :get, class: 'btn btn-outline-success' %>
-                        <%= button_to 'Edit', edit_article_path(article), method: :get, class: 'btn btn-outline-warning' %>
-                        <%= button_to 'Delete', article_path(article), method: :delete, onclick: "return confirm('Are you sure?')", class: 'btn btn-outline-danger' %>
-                    </div>
-                </div>
-                <div class="card-footer text-muted">
-                    <small> Created ago <%= time_ago_in_words(article.created_at) %> ago,
-                    edited <%= time_ago_in_words(article.updated_at) %> ago</small>
-
-                </div>
-            </div>
-        <% end %>
+<div class="" id="page-content">
+    <h1 class='text-center pt-2'>All articles</h1>
+    <div class="flickr_pagination">
+        <%= will_paginate @articles, :container => false %>
+    </div>
+    <%= render 'article' %> 
+    <div class="flickr_pagination p-5">
+        <%= will_paginate @articles, :container => false%>
     </div>
 </div>

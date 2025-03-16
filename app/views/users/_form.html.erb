@@ -1,0 +1,24 @@
+<%= render 'shared/errors', obj: @user %>
+
+<div class='container bg-primary rounded shadow'>
+  <%= form_with(model: @user, local: true) do |f| %>
+    <div class="m-5">
+      <%= f.label :username, class: 'form-label fw-bold text-light mt-5'%>
+      <%= f.text_field :username, class: 'form-control shadow', id: 'inputUsername', placeholder: 'Enter username...' %>
+    </div>
+    <div class="m-5">
+      <%= f.label :email, class: 'form-label fw-bold text-light'%>
+      <%= f.email_field :email, class: 'form-control shadow', id: 'inputEmail', placeholder: 'Enter email address...' %>
+    </div>
+    <div class="m-5">
+      <%= f.label :password, class: 'form-label fw-bold text-light'%>
+      <%= f.password_field :password, class: 'form-control shadow', id: 'inputPassword', placeholder: 'Choose a password...' %>
+    </div>
+
+    <div class='d-flex justify-content-center align-items-center w-100 gap-4'>
+      <%= f.submit(@user.new_record? ? "Sign up" : "Update account", class: 'btn btn-success mb-4 shadow') %>
+      <%= link_to 'Back', articles_path, method: :get, class: 'btn btn-danger mb-4 shadow' %>
+    </div>
+
+  <% end %>
+</div>
