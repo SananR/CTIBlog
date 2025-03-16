@@ -26,23 +26,27 @@ test:
 production:
   primary:
     <<: *default
+    url: <%= ENV["DATABASE_URL"] %>
     adapter: postgresql
     encoding: unicode
     database: storage/production
   cache:
     <<: *default
+    url: <%= ENV["DATABASE_URL"] %>
     adapter: postgresql
     encoding: unicode
     database: storage/production
     migrations_paths: db/cache_migrate
   queue:
     <<: *default
+    url: <%= ENV["DATABASE_URL"] %>
     adapter: postgresql
     encoding: unicode
     database: storage/production
     migrations_paths: db/queue_migrate
   cable:
     <<: *default
+    url: <%= ENV["DATABASE_URL"] %>
     adapter: postgresql
     encoding: unicode
     database: storage/production
