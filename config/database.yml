@@ -34,13 +34,16 @@ production:
     adapter: postgresql
     encoding: unicode
     database: storage/production
+    migrations_paths: db/cache_migrate
   queue:
     <<: *default
     adapter: postgresql
     encoding: unicode
     database: storage/production
+    migrations_paths: db/queue_migrate
   cable:
     <<: *default
     adapter: postgresql
     encoding: unicode
     database: storage/production
+    migrations_paths: db/cable_migrate
