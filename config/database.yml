@@ -24,7 +24,23 @@ test:
 # Store production database in the storage/ directory, which by default
 # is mounted as a persistent Docker volume in config/deploy.yml.
 production:
-  <<: *default
-  adapter: postgresql
-  encoding: unicode
-  database: storage/production
+  primary:
+    <<: *default
+    adapter: postgresql
+    encoding: unicode
+    database: storage/production
+  cache:
+    <<: *default
+    adapter: postgresql
+    encoding: unicode
+    database: storage/production
+  queue:
+    <<: *default
+    adapter: postgresql
+    encoding: unicode
+    database: storage/production
+  cable:
+    <<: *default
+    adapter: postgresql
+    encoding: unicode
+    database: storage/production
