@@ -11,6 +11,14 @@
       <%= f.text_area :description, class: 'form-control shadow', id: 'inputDescription', placeholder: 'Description of article' %>
     </div>
 
+    <div class="m-5">
+      <%= f.label :category, class: "fw-bold form-label text-light" %>
+      <div class="col-10 w-100"> 
+        <%= f.collection_select(:category_ids, Category.all, :id, :name,
+        { prompt: "Make your selection from the list below (can be empty)"}, { multiple: true, size: 5, class: "w-100 custom-select shadow rounded" }) %>
+      </div>
+    </div>
+
     <div class='d-flex justify-content-center align-items-center w-100 gap-4'>
       <%= f.submit class: 'btn btn-success mb-4 shadow' %>
       <%= link_to 'Back', articles_path, method: :get, class: 'btn btn-danger mb-4 shadow' %>

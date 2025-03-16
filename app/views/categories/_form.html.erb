@@ -1,0 +1,15 @@
+<%= render 'shared/errors', obj: @category %>
+<div class='container bg-primary rounded shadow'>
+    <%= form_with(model: @category, local: true) do |f| %>
+        <div class="m-5">
+            <%= f.label :name, "Category name", class: 'form-label fw-bold text-light mt-5'%>
+            <%= f.text_field :name, class: 'form-control shadow', id: 'inputName', placeholder: 'Enter a name...' %>
+        </div>
+
+        <div class='d-flex justify-content-center align-items-center w-100 gap-4'>
+            <%= f.submit class: 'btn btn-success mb-4 shadow' %>
+            <%= link_to 'Back', articles_path, method: :get, class: 'btn btn-danger mb-4 shadow' %>
+        </div>
+
+    <% end %>
+</div>
